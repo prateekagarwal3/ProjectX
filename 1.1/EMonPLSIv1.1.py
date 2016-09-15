@@ -6,17 +6,13 @@ import numpy as np
 import random
 import sys
 
-
+Eps = 0.0000000001
 termDoc = np.load("termDoc.npy")
-termDoc = termDoc/255.0
-print termDoc 
-sys.exit()
 
 Strokes = 15
 iterations = 15
 N = 75
 M = 1600
-Eps = 0.0000000001
 
 Pz_d_w = np.zeros((Strokes,N,M),dtype = np.float64)
 Pw_z  = np.zeros((M,Strokes),dtype = np.float64)
@@ -37,6 +33,7 @@ for k in xrange(Strokes) :
 
 print "End of Initialization"
 
+
 #####  Starting EM Algorithm  #####
 
 for em in xrange(iterations) :
@@ -51,21 +48,22 @@ for em in xrange(iterations) :
 				Pz_d_w[k][i][j] = Pw_z[j][k] * Pz_d[k][i]	
 				Pz_d_w[k][i][j] /= den
 
-	print "End of E Step " + str(em)
+	print "End of E-Step : " + str(em)
 	#####  M-Step - I #####
 	
-	for j in xrange(M):
-		for k in xrange(Strokes):
+	for k in xrange(Strokes):
+		den = Eps
+		for m in xrange(M):
+			for i in xrange(N):
+				den += termDoc[i][m] * Pz_d_w[k][i][m]
+		for j in xrange(M):
 			num = Eps
-			den = Eps
-			for m in xrange(M):
-				for i in xrange(N):
-					den += termDoc[i][m] * Pz_d_w[k][i][m]
 			for i in xrange(N):
 				num += termDoc[i][j] * Pz_d_w[k][i][j]
+
 			Pw_z[j][k] = num/den
 
-	print "End of M Step - I" + str(em)
+	print "End of M Step - I : " + str(em)
 	#####  M-Step - II #####
 
 	for k in xrange(Strokes):
@@ -75,7 +73,7 @@ for em in xrange(iterations) :
 				num += termDoc[i][j] * Pz_d_w[k][i][j]
 			Pz_d[k][i] = num/M
 
-	print "End of M Step - II " + str(em)
+	print "End of M Step - II : " + str(em)
 
 
 imgStrokes = np.zeros((40,40),dtype = np.float64)
@@ -83,14 +81,13 @@ imgStrokes = np.zeros((40,40),dtype = np.float64)
 basewidth = 100
 hsize = 100
 
-ma = np.amax(Pw_z)
+maxProb = np.amax(Pw_z)
 for k in xrange(Strokes):
 	for x in xrange(40):
 		for y in xrange(40):
-			imgStrokes[x][y] = Pw_z[x*40+y][k] * 255/ma
+			imgStrokes[x][y] = Pw_z[x*40+y][k] * 255 / maxProb
 	imgStrokes  =  np.uint8(imgStrokes)
 	img  =  Image.fromarray(imgStrokes)
 	img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 	path = "/home/prateek/ProjectX/1.1"
-	img.save(path + "/StrokeImage" + str(k) + "v1.1" + ".tif")	
-
+	img.save(path + "/StrokeImage" + str(k) + "v.2" + ".tif")	
