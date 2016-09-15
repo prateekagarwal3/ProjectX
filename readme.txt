@@ -5,7 +5,7 @@ Next Step :- Generate pdf of characters.
 Next Step :- Applying EM Alogrithm 
 Next Step :- Correctly use PLSI and get set of strokes.
 
-Prateek codes are in 1.1 :)
+Prateek's codes are in 1.1 :)
 Mango's codes are in 1.2 :P
 
 1.0 contains codes which were implemented when PLSI was implemented by us for the first time :|
