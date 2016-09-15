@@ -9,5 +9,5 @@ Prateek's codes are in 1.1 :)
 Mango's codes are in 1.2 :P
 
 1.0 contains codes which were implemented when PLSI was implemented by us for the first time :|
-
+1.3 contains strokes after 100 iterations in folder "Stroke"
 Original Data Set contains the Data Set given to us by Sir.Please dont modify that directory :\
