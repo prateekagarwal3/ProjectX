@@ -6,14 +6,13 @@ import numpy as np
 import random
 import sys
 
+Eps = 0.0000000001
 termDoc = np.load("termDoc.npy")
-termDoc = termDoc / 255.0
 
 Strokes = 15
 iterations = 15
 N = 75
 M = 1600
-Eps = 0.0000000001
 
 Pz_d_w = np.zeros((Strokes,N,M),dtype = np.float64)
 Pw_z  = np.zeros((M,Strokes),dtype = np.float64)
@@ -34,6 +33,7 @@ for k in xrange(Strokes) :
 
 print "End of Initialization"
 
+
 #####  Starting EM Algorithm  #####
 
 for em in xrange(iterations) :
@@ -51,15 +51,16 @@ for em in xrange(iterations) :
 	print "End of E-Step : " + str(em)
 	#####  M-Step - I #####
 	
-	for j in xrange(M):
-		for k in xrange(Strokes):
+	for k in xrange(Strokes):
+		den = Eps
+		for m in xrange(M):
+			for i in xrange(N):
+				den += termDoc[i][m] * Pz_d_w[k][i][m]
+		for j in xrange(M):
 			num = Eps
-			den = Eps
-			for m in xrange(M):
-				for i in xrange(N):
-					den += termDoc[i][m] * Pz_d_w[k][i][m]
 			for i in xrange(N):
 				num += termDoc[i][j] * Pz_d_w[k][i][j]
+
 			Pw_z[j][k] = num/den
 
 	print "End of M Step - I : " + str(em)
@@ -89,4 +90,4 @@ for k in xrange(Strokes):
 	img  =  Image.fromarray(imgStrokes)
 	img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 	path = "/home/prateek/ProjectX/1.1"
-	img.save(path + "/StrokeImage" + str(k) + "v.1" + ".tif")	
+	img.save(path + "/StrokeImage" + str(k) + "v.2" + ".tif")	
