@@ -2,8 +2,8 @@ import PIL
 import os
 from PIL import Image
 
-hsize = 75
-basewidth = 75
+hsize = 40
+basewidth = 40
 zers = "0000"
 error = open("errors.txt",'w')
 for i in xrange(4,34):
