@@ -13,7 +13,6 @@ Eps = 0.0000000001
 
 
 zers = "0000"
-
 termDocument = np.zeros((75,1600))
 docNum = 0
 
