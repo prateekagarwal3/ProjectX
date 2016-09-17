@@ -27,7 +27,7 @@ Pz_d = np.zeros((Strokes,N),dtype = np.float64)
 # 		for m in range(M):
 # 			Pz_d_w[k][i][m] = random.random()
 				
-for m in xrange(0,1600):
+for m in xrange(0,1600):					
 	for k in xrange(Strokes) :
 		Pw_z[m][k] = random.random()
 
@@ -36,13 +36,13 @@ for k in xrange(Strokes) :
 		Pz_d[k][i] = random.random();
 
 
-Norm1 =  np.sum(Pw_z,axis=0);
-Norm2 = np.sum(Pz_d,axis=0);
+Norm1 =  np.sum(Pw_z,axis=0);       ##Norm1 contains for each stroke k (sum(j = 1 to M ) P(wj|zk))  
+Norm2 = np.sum(Pz_d,axis=0);		##Norm2 contains for each document i (sum k = 1 to Strokes P(zk|di))	
 for i in xrange(Strokes):
 	for j in xrange(0,1600):
 		Pw_z[j][i]/=Norm1[i]
 
-#print np.sum(Pw_z,axis=0)
+									##Normalized beacuse they should be 1
 
 for i in xrange(N):
 	for j in xrange(Strokes):
@@ -93,7 +93,7 @@ for em in xrange(iterations) :
 	#####  M-Step - II #####
 	for k in xrange(Strokes):
 		for i in xrange(N):
-			nD = np.sum(termDoc[i])
+			nD = np.sum(termDoc[i])  				##nD = sum of (Intesity of ) the black pixels in a document
 			num=Eps
 			for j in xrange(M):
 				num += termDoc[i][j] * Pz_d_w[k][i][j]
