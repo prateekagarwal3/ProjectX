@@ -5,27 +5,24 @@ from PIL import Image
 import numpy as np
 import random
 import sys
+import datetime
 
 Eps = 0.0000000001
 termDoc = np.load("termDoc.npy")
 
+##termDoc contains an array of M pixels for N samples , each element defining the pixel intensity
 
 
-
-Strokes = 20
-iterations = 100
-N = 75
+Strokes = 10
+iterations = 1
+N = 1454
 M = 1600
 
-Pz_d_w = np.zeros((Strokes,N,M),dtype = np.float64)
-Pw_z  = np.zeros((M,Strokes),dtype = np.float64)
-Pz_d = np.zeros((Strokes,N),dtype = np.float64)
+Pz_d_w = np.zeros((Strokes,N,M),dtype = np.float64)  	##Probability(zk|di,wj) Probability of k-th stroke given i-th sample and j-th pixel is black
+Pw_z  = np.zeros((M,Strokes),dtype = np.float64)	 	##Probability(wj|zk)  Probability of j-th pixel being black given k-th stroke
+Pz_d = np.zeros((Strokes,N),dtype = np.float64)			##Probability(zk|di) Probability of k-th stroke being present in i-th sample
+nD = np.zeros(N,dtype=np.float64)
 
-
-# for k in xrange(Strokes) : #Initialization
-# 	for i in xrange(N) :
-# 		for m in range(M):
-# 			Pz_d_w[k][i][m] = random.random()
 				
 for m in xrange(0,1600):					
 	for k in xrange(Strokes) :
@@ -34,6 +31,7 @@ for m in xrange(0,1600):
 for k in xrange(Strokes) :
 	for i in xrange(N) :
 		Pz_d[k][i] = random.random();
+		nD[i] = np.sum(termDoc[i])      ##nD[i] = sum of (Intesity of ) the white pixels in i-th document
 
 
 Norm1 =  np.sum(Pw_z,axis=0);       ##Norm1 contains for each stroke k (sum(j = 1 to M ) P(wj|zk))  
@@ -41,6 +39,7 @@ Norm2 = np.sum(Pz_d,axis=0);		##Norm2 contains for each document i (sum k = 1 to
 for i in xrange(Strokes):
 	for j in xrange(0,1600):
 		Pw_z[j][i]/=Norm1[i]
+		
 
 									##Normalized beacuse they should be 1
 
@@ -59,7 +58,11 @@ print "End of Initialization"
 
 #####  Starting EM Algorithm  #####
 
+BegTime = datetime.datetime.now();
+
 for em in xrange(iterations) :
+
+	StartTime = datetime.datetime.now();
 	
 	#####  E-Step  #####
 	print em
@@ -88,26 +91,44 @@ for em in xrange(iterations) :
 
 			Pw_z[j][k] = num/den
 
-		print "End of M Step - I " + str(em)
+		#print "End of M Step - I " + str(em)
 
 	#####  M-Step - II #####
-	for k in xrange(Strokes):
+	#for k in xrange(Strokes):
 		for i in xrange(N):
-			nD = np.sum(termDoc[i])  				##nD = sum of (Intesity of ) the black pixels in a document
+			  							
 			num=Eps
 			for j in xrange(M):
 				num += termDoc[i][j] * Pz_d_w[k][i][j]
-			Pz_d[k][i] = num/(nD)
+			Pz_d[k][i] = num/(nD[i])
 
 	print "End of M Step " + str(em)
+
+	EndTime = datetime.datetime.now();
+
+	ElapsedTime = EndTime - StartTime
+
+	minutes = ElapsedTime.seconds/60;
+	seconds = ElapsedTime.seconds%60;
+
+	print "Took "+str(minutes)+" Minutes "+str(seconds)+" seconds to complete "+str(em)+" iteration"
+
+FinTime = datetime.datetime.now();
+
+TotalElapsedTime = FinTime - BegTime;
+
+print ""
+print "Total Time"
+print "Minutes: "+str(TotalElapsedTime.seconds/60)
+print "Seconds: "+str(TotalElapsedTime.seconds%60)
 
 
 imgStrokes = np.zeros( (40,40),dtype = np.float64 )
 
-ma = np.amax(Pw_z)
-s1 = np.sum(Pz_d,axis=0)
-s2 = np.sum(Pw_z,axis=0)
-print Pw_z;
+ma = np.amax(Pw_z)			##Normalize using the maximum 
+np.save("w_z",Pw_z);
+np.save("z_d",Pz_d)
+                                   	
 for k in xrange(Strokes):
 	for x in xrange(40):
 		for y in xrange(40):
@@ -116,4 +137,4 @@ for k in xrange(Strokes):
 	img  =  Image.fromarray(imgStrokes)
 	#img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 	#img.show();
-	img.save("Stroke/StrokeImagev2" + str(k) + ".tif")	
+	img.save("Stroke/StrokeImage" + str(k) + ".tif")	
