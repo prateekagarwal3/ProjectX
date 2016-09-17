@@ -14,7 +14,7 @@ termDoc = np.load("termDoc.npy")
 
 
 Strokes = 10
-iterations = 1
+iterations = 40
 N = 1454
 M = 1600
 
