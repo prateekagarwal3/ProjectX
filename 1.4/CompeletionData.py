@@ -36,15 +36,15 @@ R2 = np.repeat(R,40)
 # 	for j in xrange(R2.size):
 # 		print R2[i], R2[j]
 
-for i in xrange(2):
-	#plt.ylim((0,ma))
-	#plt.xlim((0,1600))
-	fig = plt.figure()
-	ax=Axes3D(fig)
-	ax.scatter(R2,R1,P[i])
-	#plt.savefig("Plots/Stroke "+str(i)+" Plot")
-	#plt.clf()
-	plt.show()
+for i in xrange(Strokes):
+	plt.ylim((0,ma))
+	plt.xlim((0,1600))
+	#ax=Axes3D(fig)
+	plt.scatter(xrange(1600),Pw_z[i])
+	plt.savefig("Plots/Stroke "+str(i)+" Plot")
+	#plt.show()
+	plt.clf()
+	
 
 
 
