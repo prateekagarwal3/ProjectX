@@ -8,7 +8,7 @@ import sys
 
 
 Strokes = 6
-N = 50
+N = 0
 Eps = 0.0000000001
 
 
