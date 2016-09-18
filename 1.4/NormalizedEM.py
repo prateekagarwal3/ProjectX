@@ -9,13 +9,12 @@ import datetime
 
 Eps = 0.0000000001
 termDoc = np.load("termDoc.npy")
-
 ##termDoc contains an array of M pixels for N samples , each element defining the pixel intensity
 
 
-Strokes = 10
+Strokes = 20
 iterations = 40
-N = 1454
+N = 2517
 M = 1600
 
 Pz_d_w = np.zeros((Strokes,N,M),dtype = np.float64)  	##Probability(zk|di,wj) Probability of k-th stroke given i-th sample and j-th pixel is black
@@ -65,7 +64,7 @@ for em in xrange(iterations) :
 	StartTime = datetime.datetime.now();
 	
 	#####  E-Step  #####
-	print em
+	
 	for i in xrange(N):
 		for j in xrange(M):
 			den = Eps
@@ -75,7 +74,7 @@ for em in xrange(iterations) :
 				Pz_d_w[k][i][j] = Pw_z[j][k] * Pz_d[k][i]	
 				Pz_d_w[k][i][j] /= den
 
-	print "End of E Step " + str(em)
+	print "End of E Step of Iteration No : " + str(em)
 
 	#####  M-Step - I #####
 	
@@ -102,7 +101,7 @@ for em in xrange(iterations) :
 				num += termDoc[i][j] * Pz_d_w[k][i][j]
 			Pz_d[k][i] = num/(nD[i])
 
-	print "End of M Step " + str(em)
+	print "End of M Step of Iteration No : " + str(em)
 
 	EndTime = datetime.datetime.now();
 
