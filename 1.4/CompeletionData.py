@@ -5,12 +5,13 @@ import itertools
 
 Pw_z=np.load("w_z.npy")
 Pz_d=np.load("z_d.npy")
-
+termdoc = np.load("termDoc.npy")
 
 #np.set_printoptions(threshold=np.inf)
 
 
 Strokes=10
+N = 2517
 P = np.zeros((Strokes,40,40),dtype=np.float64)
 
 
@@ -20,10 +21,10 @@ Pw_z=Pw_z.transpose()
 Pz_d = Pz_d.transpose();
 #Pw_z=Pw_z*255/ma
 
-for k in range(Strokes):
-	for i in xrange(40):
-		for j in xrange(40):
-			P[k][i][j]=Pw_z[k][i*40+j]
+# for k in range(Strokes):
+# 	for i in xrange(40):
+# 		for j in xrange(40):
+# 			P[k][i][j]=Pw_z[k][i*40+j]
 
 
 
@@ -40,30 +41,33 @@ R2 = np.repeat(R,40)
 
 
 
-for i in xrange(Strokes):
+# for i in xrange(Strokes):
 	
 	
-	plt.xlabel("Position of Pixel");
-	plt.ylabel("Probability of it being black")
-	#ax=Axes3D(fig)
-	plt.figure(figsize=(20,10))
-	plt.ylim((0,ma))
-	plt.xlim((0,1600))
-	plt.scatter(xrange(1600),Pw_z[i])
-	plt.savefig("Plots/Stroke "+str(i)+" Plot")
-	#plt.show()
-	plt.clf()
+# 	plt.xlabel("Position of Pixel");
+# 	plt.ylabel("Probability of it being black")
+# 	#ax=Axes3D(fig)
+# 	plt.figure(figsize=(20,10))
+# 	plt.ylim((0,ma))
+# 	plt.xlim((0,1600))
+# 	plt.scatter(xrange(1600),Pw_z[i])
+# 	plt.savefig("Plots/Stroke "+str(i)+" Plot")
+# 	#plt.show()
+# 	plt.clf()
 
 	
 
-Avg = np.mean(Pz_d,axis=0)
-Mm  = np.amax(Avg)
+# Avg = np.mean(Pz_d,axis=0)
+# Mm  = np.amax(Avg)
 
-plt.ylim((0,Mm+0.1))
-plt.xlim((0,10))
-plt.scatter(xrange(10),Avg)
-plt.savefig("Plots/StrokeProbability Plot")
-plt.clf
+# plt.ylim((0,Mm+0.1))
+# plt.xlim((0,10))
+# plt.scatter(xrange(10),Avg)
+# plt.savefig("Plots/StrokeProbability Plot")
+# plt.clf
 
+
+Sum = np.zeros((N,1600),dtype=np.float64)
+for k in xrange(Strokes):
 
 
