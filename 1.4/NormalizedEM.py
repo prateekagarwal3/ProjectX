@@ -11,7 +11,7 @@ Eps = 0.0000000001
 termDoc = np.load("termDoc.npy")
 ##termDoc contains an array of M pixels for N samples , each element defining the pixel intensity
 
-Strokes = 10
+Strokes = 15
 iterations = 40
 N = 2517
 M = 1600

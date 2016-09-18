@@ -6,6 +6,7 @@ import itertools
 Pw_z=np.load("w_z.npy")
 Pz_d=np.load("z_d.npy")
 
+
 #np.set_printoptions(threshold=np.inf)
 
 
@@ -16,6 +17,7 @@ P = np.zeros((Strokes,40,40),dtype=np.float64)
 
 ma = np.amax(Pw_z)
 Pw_z=Pw_z.transpose()
+Pz_d = Pz_d.transpose();
 #Pw_z=Pw_z*255/ma
 
 for k in range(Strokes):
@@ -36,16 +38,32 @@ R2 = np.repeat(R,40)
 # 	for j in xrange(R2.size):
 # 		print R2[i], R2[j]
 
+
+
 for i in xrange(Strokes):
+	
+	
+	plt.xlabel("Position of Pixel");
+	plt.ylabel("Probability of it being black")
+	#ax=Axes3D(fig)
+	plt.figure(figsize=(20,10))
 	plt.ylim((0,ma))
 	plt.xlim((0,1600))
-	#ax=Axes3D(fig)
 	plt.scatter(xrange(1600),Pw_z[i])
 	plt.savefig("Plots/Stroke "+str(i)+" Plot")
 	#plt.show()
 	plt.clf()
+
 	
 
+Avg = np.mean(Pz_d,axis=0)
+Mm  = np.amax(Avg)
+
+plt.ylim((0,Mm+0.1))
+plt.xlim((0,10))
+plt.scatter(xrange(10),Avg)
+plt.savefig("Plots/StrokeProbability Plot")
+plt.clf
 
 
 
