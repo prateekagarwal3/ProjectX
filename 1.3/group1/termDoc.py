@@ -9,8 +9,8 @@ import sys
 
 
 
-Strokes = 6
-N = 1454
+Strokes = 20
+N = 2517
 M = 1600
 Eps = 0.0000000001
 
@@ -19,7 +19,7 @@ zers = "0000"
 termDocument = np.zeros((N,M))
 docNum = 0
 
-for dirTrav in xrange(4,34) : # 4 - 33 Directories
+for dirTrav in xrange(4,64) : # 4 - 33 Directories
 	charPath = "F" + zers[:3-len(str(dirTrav))] + str(dirTrav)
 	#print "Path : " + charPath
 	if os.path.exists(charPath) == False:
@@ -31,7 +31,6 @@ for dirTrav in xrange(4,34) : # 4 - 33 Directories
 	try : 
 		for fileTrav in xrange(1,dirLength+1): #Each Image of a Character		
 			imgPath = charPath + "/000" + str(fileTrav) + ".tif"
-
 			try:
 				img = Image.open(imgPath)
 			except (IOError,OSError) as err:
