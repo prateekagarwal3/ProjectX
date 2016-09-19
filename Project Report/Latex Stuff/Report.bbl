@@ -1,0 +1,68 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{hoff1}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Hoffman}{H.}%
+     {Thomas}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{PLSA}
+  \strng{namehash}{HT1}
+  \strng{fullhash}{HT1}
+  \field{sortinit}{H}
+  \field{pages}{289\bibrangedash 296}
+  \field{title}{Probabilistic Latent Semantic Analysis}
+  \field{journaltitle}{Proceedings of the fifteenth conference on uncertainty
+  in artificial intelligence,}
+  \field{year}{1999}
+\endentry
+
+\entry{hoff2}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Hoffman}{H.}%
+     {Thomas}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{EM}
+  \strng{namehash}{HT1}
+  \strng{fullhash}{HT1}
+  \field{sortinit}{H}
+  \field{series}{Machine Learning}
+  \field{title}{Unsupervised Learning by Probabilistic Latent Semantic
+  Analysis}
+  \field{volume}{42}
+  \field{year}{2001}
+\endentry
+
+\entry{dataera}{online}{}
+  \field{sortinit}{N}
+  \field{title}{Notes on EM and PLSA}
+  \verb{url}
+  \verb http://dataera.org/2014/04/notes-on-em-and-plsa/
+  \endverb
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
