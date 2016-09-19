@@ -16,6 +16,33 @@
   {}
 \endgroup
 
+\entry{dicarlo}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {DiCarlo}{D.}%
+     {James~J.}{J.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zoccolan}{Z.}%
+     {Davide}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rust}{R.}%
+     {Nicole~C.}{N.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DJJZDRNC1}
+  \strng{fullhash}{DJJZDRNC1}
+  \field{sortinit}{D}
+  \field{pages}{415\bibrangedash 434}
+  \field{title}{How Does the Brain Solve Visual Object Recognition?}
+  \field{journaltitle}{Neuron}
+  \field{year}{2012}
+\endentry
+
 \entry{hoff1}{article}{}
   \name{author}{1}{}{%
     {{}%
@@ -35,7 +62,7 @@
   \field{year}{1999}
 \endentry
 
-\entry{hoff2}{book}{}
+\entry{hoff2}{article}{}
   \name{author}{1}{}{%
     {{}%
      {Hoffman}{H.}%
@@ -47,10 +74,10 @@
   \strng{namehash}{HT1}
   \strng{fullhash}{HT1}
   \field{sortinit}{H}
-  \field{series}{Machine Learning}
+  \field{pages}{177\bibrangedash 196}
   \field{title}{Unsupervised Learning by Probabilistic Latent Semantic
   Analysis}
-  \field{volume}{42}
+  \field{journaltitle}{Machine Learning}
   \field{year}{2001}
 \endentry
 

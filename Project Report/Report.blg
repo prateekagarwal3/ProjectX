@@ -15,11 +15,11 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Report-blx.bib
 Database file #2: sample.bib
-I was expecting a `,' or a `}'---line 24 of file sample.bib
+I was expecting a `,' or a `}'---line 32 of file sample.bib
  :     url={http://dataera.org/2014/04/notes-on-em-and-plsa/}
  :                                                           ",
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 31 of file sample.bib
+I was expecting a `,' or a `}'---line 39 of file sample.bib
  :  
  :  keywords = {python,documentation}
 (Error may have been on previous line)
@@ -27,45 +27,45 @@ I'm skipping whatever remains of this entry
 Biblatex version: 3.3
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 5 entries,
+You've used 6 entries,
             6047 wiz_defined-function locations,
-            1148 strings with 8436 characters,
-and the built_in function-call counts, 9556 in all, are:
-= -- 325
-> -- 225
-< -- 79
-+ -- 75
-- -- 78
-* -- 460
-:= -- 648
+            1154 strings with 8573 characters,
+and the built_in function-call counts, 12978 in all, are:
+= -- 436
+> -- 365
+< -- 116
++ -- 118
+- -- 140
+* -- 781
+:= -- 869
 add.period$ -- 0
-call.type$ -- 5
-change.case$ -- 27
+call.type$ -- 6
+change.case$ -- 35
 chr.to.int$ -- 34
-cite$ -- 8
-duplicate$ -- 1054
-empty$ -- 1199
-format.name$ -- 102
-if$ -- 2235
+cite$ -- 10
+duplicate$ -- 1419
+empty$ -- 1535
+format.name$ -- 192
+if$ -- 3003
 int.to.chr$ -- 0
-int.to.str$ -- 8
+int.to.str$ -- 10
 missing$ -- 0
-newline$ -- 74
-num.names$ -- 88
-pop$ -- 1326
+newline$ -- 101
+num.names$ -- 129
+pop$ -- 1659
 preamble$ -- 1
-purify$ -- 27
+purify$ -- 40
 quote$ -- 0
-skip$ -- 549
+skip$ -- 741
 stack$ -- 0
-substring$ -- 187
-swap$ -- 307
-text.length$ -- 92
-text.prefix$ -- 4
+substring$ -- 247
+swap$ -- 432
+text.length$ -- 131
+text.prefix$ -- 5
 top$ -- 1
-type$ -- 178
+type$ -- 216
 warning$ -- 0
-while$ -- 92
+while$ -- 112
 width$ -- 0
-write$ -- 68
+write$ -- 94
 (There were 2 error messages)
