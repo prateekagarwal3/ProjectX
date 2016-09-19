@@ -19,48 +19,53 @@ I was expecting a `,' or a `}'---line 24 of file sample.bib
  :     url={http://dataera.org/2014/04/notes-on-em-and-plsa/}
  :                                                           ",
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 31 of file sample.bib
+ :  
+ :  keywords = {python,documentation}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Biblatex version: 3.3
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 4 entries,
+You've used 5 entries,
             6047 wiz_defined-function locations,
-            1145 strings with 8403 characters,
-and the built_in function-call counts, 8039 in all, are:
-= -- 286
+            1148 strings with 8436 characters,
+and the built_in function-call counts, 9556 in all, are:
+= -- 325
 > -- 225
-< -- 64
-+ -- 74
-- -- 76
-* -- 410
-:= -- 620
+< -- 79
++ -- 75
+- -- 78
+* -- 460
+:= -- 648
 add.period$ -- 0
-call.type$ -- 4
-change.case$ -- 23
+call.type$ -- 5
+change.case$ -- 27
 chr.to.int$ -- 34
-cite$ -- 6
-duplicate$ -- 842
-empty$ -- 948
+cite$ -- 8
+duplicate$ -- 1054
+empty$ -- 1199
 format.name$ -- 102
-if$ -- 1864
+if$ -- 2235
 int.to.chr$ -- 0
-int.to.str$ -- 7
+int.to.str$ -- 8
 missing$ -- 0
-newline$ -- 66
+newline$ -- 74
 num.names$ -- 88
-pop$ -- 1003
+pop$ -- 1326
 preamble$ -- 1
-purify$ -- 24
+purify$ -- 27
 quote$ -- 0
-skip$ -- 473
+skip$ -- 549
 stack$ -- 0
-substring$ -- 177
-swap$ -- 250
-text.length$ -- 78
-text.prefix$ -- 3
+substring$ -- 187
+swap$ -- 307
+text.length$ -- 92
+text.prefix$ -- 4
 top$ -- 1
-type$ -- 140
+type$ -- 178
 warning$ -- 0
-while$ -- 89
+while$ -- 92
 width$ -- 0
-write$ -- 61
-(There was 1 error message)
+write$ -- 68
+(There were 2 error messages)

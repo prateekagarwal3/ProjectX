@@ -62,6 +62,14 @@
   \endverb
 \endentry
 
+\entry{pytho}{online}{}
+  \field{sortinit}{P}
+  \field{title}{Python}
+  \verb{url}
+  \verb https://www.python.org
+  \endverb
+\endentry
+
 \lossort
 \endlossort
 
