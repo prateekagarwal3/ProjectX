@@ -9,9 +9,11 @@ Prateek's codes are in 1.1 :)
 Mango's codes are in 1.2 :P
 
 1.0 contains codes which were implemented when PLSI was implemented by us for the first time :|
+1.1 contains incorrect code.
 1.2 contains strokes after 100 iterations in folder "Stroke"
 1.3 contains strokes after 40 iterations in folder "Stroke". The program ran on all samples of the first 30 characters(F004-F033)
 1.4 contains the current implementation which seems right and few graphs.I ran it for F004 - F064 & Generated Strokes are in "Stroke Folder".
+1.5 contains the final state of strokes and codes before the Mid-Sem Project evaluation.
 
 Project Report contains the pdf and latex files which were used to create the report.
 
