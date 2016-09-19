@@ -222,7 +222,8 @@
 				\item
 				We observed that the stroke patterns generated depended on number of strokes, size of the dataset used and the number of iterations.
 				\item
-				$P\,(w_j|z_k)$ and $P\,(z_k|d_i)$ were observed to converge after approximately 100 iterations of the EM algorithm.
+				$P\,(w_j|z_k)$ and $P\,(z_k|d_i)$ converged after about 100 iterations.
+				The breaking condition here is if the likelihood changes by less than a factor of $10^{-6}$.
 			\end{itemize}
 			\begin{center}
 				\includegraphics{stro0.jpg}
@@ -239,9 +240,11 @@
 		\subsection{Analysis :}
 			\begin{itemize}
 				\item 
-				Depending on the size of dataset we used to train the algorithm, the time taken for generating the strokes ranged from 1-5 hrs. The strokes generated were much more accurate and clear when the PLSA model ran on a largeer dataset.
+				Depending on the size of dataset we used to train the algorithm, the time taken for generating the strokes ranged from 1-5 hrs. The strokes generated were much more accurate and clear when the PLSA model ran on a larger dataset.
 				\item
-				The time complexity of our program is $O(n^4)$ which equates to about $10^{10}$ instructions of python code to execute
+				The time complexity of our program is O(NMK) which equates to about $10^{9}$ instructions of python code to execute.
+				\item
+				N stands for the number of images, M stands for the size of each image - 1600, in this case. K stands for number of strokes.
 			\end{itemize}
 	\newpage
 	\section{Conclusion and Future Scope}
