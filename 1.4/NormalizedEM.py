@@ -136,8 +136,8 @@ print "Seconds: "+str(TotalElapsedTime.seconds%60)
 imgStrokes = np.zeros( (40,40),dtype = np.float64 )
 
 ma = np.amax(Pw_z)			##Normalize using the maximum 
-np.save("w_z",Pw_z);
-np.save("z_d",Pz_d)
+#np.save("w_z",Pw_z);
+#np.save("z_d",Pz_d)
                                    	
 for k in xrange(Strokes):
 	for x in xrange(40):
