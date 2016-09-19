@@ -8,13 +8,16 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{grffile}
+\usepackage{multicol}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{document}
 	\newpage
 	\begin{center}
 		\Huge \textbf{Stroke Recognition from Characters}
-		\\[180pt]
+		\\[100pt]
 		\Large Interim Report of B.Tech IT $5^{th}$ Semester Mini-Project
+		\\submitted at Indian Institute Of Information Technology, Allahabad.\\[20pt]
+		\includegraphics{iiita.jpg}
 		\\[100pt]
 		\Large Supervised By\\Prof. Sudip Sanyal
 		\\[100pt]
@@ -26,22 +29,40 @@
 	\newpage
 	\begin{center}
 		\Huge \textbf{Candidate's Declaration}
-		\\[250pt]
+		\\[120pt]
 		\Large
-		We hereby declare that the project report titled "Stroke Recognition from Characters" submitted by us to Indian Institute Of Information Technology, Allahabad, in fulfillment of the requirement for the reward of a B.Tech in Information Technology, is a record of bonafide project work, under the supervision of Prof. Sudip Sanyal Candidate's Signature
+		We hereby declare that the project report titled
+		
+		``Stroke Recognition from Characters" submitted by us to
+		
+		Indian Institute Of Information Technology, Allahabad,
+		
+		in partial fulfillment of the $5^{th}$ semester Mini-Project work,
+		
+		is a record of bonafide project work, 
+		
+		under the supervision of Prof. Sudip Sanyal.
 		\\[100pt]
 		\underline{Group Members}
-		\\[20pt]
-		Kaustubh Shamshery \hspace{40pt} Pratik Mangalore\\Prateek Agarwal \hspace{60pt}Sulyab Thottungal
+		\\[50pt]
+		Kaustubh Shamshery \hspace{40pt} Pratik Mangalore\\[50pt] Prateek Agarwal \hspace{60pt}Sulyab Thottungal
 	\end{center}
 	\newpage
 	\begin{center}
 		\Huge \textbf{Supervisor's Certificate}
 		\\[100pt]
 		\Large
-		This is to certify that the project report entitled Stroke Recognition from Characters	submitted to Department of Information Technology, Indian Institute of Information	Technology, Allahabad in partial fulfillment of the $5^{th}$ semester Mini-Project work, is a record of
+		This is to certify that the project report entitled
 		
-		bonafide work carried out by :
+		``Stroke Recognition from Characters"	
+		
+		submitted to Department of Information Technology,
+		
+		Indian Institute of Information	Technology, Allahabad
+		
+		in partial fulfillment of the $5^{th}$ semester Mini-Project work,
+		
+		is a record of bonafide work carried out by :
 		\\[30pt]
 		1. Kaustubh Shamshery – IIT2014147
 		
@@ -54,11 +75,11 @@
 		under my supervision and guidance.
 		
 		No part of this report has been submitted elsewhere for any other purpose.
-		\\[40pt]
+		\\[100pt]
 		\flushright
 		\textbf{Prof. Sudip Sanyal}
 		
-		Professor
+		Dean (Research and Development)
 		
 		Department of Information Technology
 		
@@ -67,10 +88,13 @@
 		Allahabad 211 012, India
 	\end{center}
 	\newpage
+	\hrulefill
 	\tableofcontents
+	\hrulefill
 	\newpage
 	\large
 	\section{Abstract}
+		\hrulefill
 		\paragraph{Background :}
 		Probabilistic Latent Semantic Analyis is a statistical technique used for the analysis of co-occurence data. In effect, one can derive a low-dimensional representation of the observed variables in terms of their affinity to certain hidden variables. We apply the above technique on a dataset consisting of images of characters in order to derive strokes which can generate the complete alphabet. The strokes here are the hidden variables which are a low-dimensional representation of the observed variables - pixels, in this case.
 		\paragraph{Purpose of Research :}
@@ -84,12 +108,13 @@
 		We conclude that the PLSA algorithm which until now is usually used in the domain of NLP can be modified so that it can be applied to images with greater levels of accuracy.
 	\newpage
 	\section{Introduction}
+		\hrulefill
 		\subsection{Overview}
 			Recognition of printed characters and handwriting is a subfield of prime importance in computer vision and artificial intelligence domains. Digitalization of information for safe storage and efficient manipulation has become a necessity in this era of information explosion.\\\\
 			Character recognition has been implemented very efficiently using many techniques in the past few decades. However, in this project, we explore a new method - identifying the strokes required to generate an entire alphabet. Here, strokes mean the basic curves which add up to produce whole letters. 
 			
 		\subsection{Motivation}
-			Identification of strokes is important as it gives and takes from how the human brain recognizes objects. The human brain uses information of orientation and spatial relations to identify objects.\\\\
+			Identification of strokes is important as it gives and takes from how the human brain recognizes objects. The human brain uses information of orientation and spatial relations to identify objects. \cite{dicarlo}\\\\
 			We propound the idea that the identification of strokes using PLSA on the characters' images is analogous to the manner in which our brain learns and recollects information. Using this method to identify characters might, in turn, provide more insight into the intricate ways of brain functioning.
 		\subsection{Scope}
 			The latent variables generated in this algorithm are the strokes present in the alphabet itself, and they are learnt by the algorithm in an unsupervised fashion. This makes the algorithm script-independent. Also, the EM algorithm converges faster than the backpropagation algorithm  which is used in neural nets, which is a popular alternative for character recognition.
@@ -100,13 +125,14 @@
 			\begin{equation}
 			P\,(x_i|c_j)=\sum_{k\in S} P\,(s_k|c_j)P\,(x_i|s_k)
 			\end{equation}
-			where $x_{i}$ is the state of the $i^{th}$ pixel (black/white), $c_{j}$ is the $j^{th}$ letter in the script, $s_{k}$ is the $k^{th}$ stroke that has been identified, and S is the set of all strokes.\\\\
+			where $x_{i}$ is the event that the $i^{th}$ pixel is black, $c_{j}$ is the $j^{th}$ letter in the script, $s_{k}$ is the $k^{th}$ stroke that has been identified, and S is the set of all strokes.\\\\
 			The above expression contains latent (hidden) variables in its RHS, and hence cannot be determined directly. Hence, we adopted the PLSA (Probabilistic latent semantic analysis) model, which is a statistical technique for automated document indexing. In PLSA, the probability of each variable is modelled as expressions involving conditionally independent multinomial distributions.
 		\subsection{Organization of the Project}  
 		    For effecient collaboration, we used Google Drive and a private GitHub repository.\\\\
 		    Each one of us had our own working dataset on which ran the algorithm separately, each time changing the definitons or number of sample/stroke. 
 	\newpage
 	\section{Literature Survey}
+	\hrulefill
 	\subsection{Background and Related Work}
 		\begin{tabularx}{15cm}{| l | c | C | C |}
 			\hline 
@@ -124,12 +150,13 @@
 		
 	\newpage
 	\section{Plan Of Work}
+	\hrulefill
 	\subsection{Proposed Approach}
 		\large We divided our work into the following parts :-
 		\subsubsection{Preprocessing} 
 			\begin{itemize}
 				\item 
-				At the start all the sample images were of different sizes. Therefore, we decided to resize them into a square image of size 40. Not only would this make the image uniform, but it would also reduce the running time of the algorithm.
+				At the start all the sample images were of different sizes. Therefore, we decided to resize them into a square image of side length 40. Not only would this make the image uniform, but it would also reduce the running time of the algorithm.
 				\item
 				We also generated the Term Document Matrix \cite{hoff1}, which will be used by the PLSA algorithm. The 2517 rows in the Term Document matrix represent the images in the dataset whereas the 1600 columns represent the grayscale value of each pixel.
 			\end{itemize}
@@ -185,7 +212,7 @@
 		\subparagraph{Hardware}
 			\begin{itemize}
 				\item 
-				Python (including  numpy, matplotlib, os, PIL, datetime packages)
+				Python (including  numpy, matplotlib, os, PIL, datetime packages) \cite{pytho}
 				\item
 				Git and GitHub
 			\end{itemize}
@@ -207,45 +234,52 @@
 		\end{center}	
 	\newpage
 	\section{Results and Analysis}
+		\hrulefill
 		\subsection{Results :}
 			\begin{itemize}
 				\item
 				We ran the EM algorithm on our PLSA model by passing the number of strokes as a parameter. Different stroke patterns were obtained for different input.
 				\item
-				We observed that the stroke patterns generated depended on number of strokes, size of the dataset used and the number of iterations.
+				We observed that the stroke patterns generated depended on number of strokes and size of the dataset used.
 				\item
-				$P\,(w_j|z_k)$ and $P\,(z_k|d_i)$ were observed to converge after approximately 100 iterations of the EM algorithm.
+				$P\,(w_j|z_k)$ and $P\,(z_k|d_i)$ converged after about 100 iterations.
+				The breaking condition here is if the likelihood changes by less than a factor of $10^{-6}$.
 			\end{itemize}
 			\begin{center}
-				\includegraphics{stro0.jpg}
 				\includegraphics{stro1.jpg}
 				\includegraphics{stro2.jpg}
-				\includegraphics{stro3.jpg} \\
+				\includegraphics{stro3.jpg} 
 				\includegraphics{stro4.jpg}
 				\includegraphics{stro5.jpg}
 				\includegraphics{stro6.jpg}
-				\includegraphics{stro7.jpg} \\
+				\includegraphics{stro7.jpg}
 				\includegraphics{stro8.jpg}
-				\includegraphics{stro9.jpg}
 			\end{center}
 		\subsection{Analysis :}
 			\begin{itemize}
 				\item 
-				Depending on the size of dataset we used to train the algorithm, the time taken for generating the strokes ranged from 1-5 hrs. The strokes generated were much more accurate and clear when the PLSA model ran on a largeer dataset.
+				Depending on the size of dataset we used to train the algorithm, the time taken for generating the strokes ranged from 1-5 hrs. The strokes generated were much more accurate and clear when the PLSA model ran on a larger dataset.
 				\item
-				The time complexity of our program is $O(n^4)$ which equates to about $10^{10}$ instructions of python code to execute
+				The time complexity of our program is O(NMK) which equates to about $10^{9}$ instructions of python code to execute. Here, N stands for the number of images, M stands for the size of each image, and K stands for number of strokes.
 			\end{itemize}
 	\newpage
 	\section{Conclusion and Future Scope}
+		\hrulefill \\\\
+		Analysing the work done so far, we conclude that carrying out stroke recognition from images using PLSA technique is highly effective.\\\\The following tasks are to be done next :
 		\begin{itemize}
 			\item 
 			Decompose the ‘strokes’ obtained into simpler, basic strokes without changing the unsupervised nature of the algorithm
 			\item
 			Optimize the algorithm and reduce its running time
 			\item
-			Introduce modifications to make sure EM does not get stuck at local maxima
-			\item
 			Devise a method to extract the minimum number of strokes required to completely and accurately generate a given script, while taking care of overfitting issues
-		\end{itemize}	
-	\printbibliography	
+			\item
+			Refine the obtained stroke images by reducing noise
+		\end{itemize}
+	\newpage
+	\printbibliography
+	\newpage
+	\section{Suggestions And Remarks :}
+		\hrulefill\\
+		\Large Please write down your suggestions and remarks if any:	
 \end{document}
