@@ -20,3 +20,5 @@ Project Report contains the pdf and latex files which were used to create the re
 Strokes and Plot contains strokes genrated on the 2517 data set with strokes as 10 for 40 iterations and plots of the same
 
 Original Data Set contains the Data Set given to us by Sir. Please dont modify that directory . 
+
+Thinning_English contains original and thinned versions of Arial Size 72 English characters, along with the code for thinning.
