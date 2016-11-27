@@ -61,9 +61,9 @@ for i in xrange(N):
 			
 			charMap[i][k]+=AbsoluteSum/sm
 	charMap[i]=charMap[i]/Samples
-	plt.scatter(xrange(Strokes),charMap[i])
-	plt.savefig(str(i)+" character")
-	plt.clf()
+	#plt.scatter(xrange(Strokes),charMap[i])
+	#plt.savefig(str(i)+" character")
+	#plt.clf()
 
 
 
