@@ -7,6 +7,7 @@ TermDoc folder contains normalized dataset and code for TermDoc generation.
 1.2 contains the final state of strokes and codes before the Mid-Sem Project evaluation.
 1.3 contains working code with the threading done.Steps for making this run are :
   1)Generate termDoc and provide it to EMnTimes and then run RemoveNoise to clean the strokes.
+1.3 contains tibetan output.
 
 Project Report contains the pdf and latex files which were used to create the report.
 

@@ -3,7 +3,7 @@ import math
 import numpy as np
 from PIL import Image
 
-
+error = 0.85
 for numEm in xrange(1):
 
 	P = np.load('w_zL'+str(numEm)+'.npy');
@@ -40,7 +40,7 @@ for numEm in xrange(1):
 		for i in xrange(M-1,-1,-1):
 			sm+=P[k][odr[i]];
 			#print sm
-			if(sm>=0.6):
+			if(sm>=error):
 				cnt = cnt + 1
 				P[k][odr[i]]=0;
 
