@@ -49,8 +49,8 @@ for dirTrav in xrange(11,37) : # 4 - 33 Directories
 
 #Stored Term Document matrix in pickle
 
-np.save("termDoc26x10",termDocument)
-ter2 = np.load("termDoc26x10.npy")
+np.save("termDocTest26x10",termDocument)
+ter2 = np.load("termDocTest26x10.npy")
 if (ter2 == termDocument).all():
 	print "Success"
 print N

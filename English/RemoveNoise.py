@@ -3,13 +3,13 @@ import math
 import numpy as np
 from PIL import Image
 
-error = 0.85
+error = 0.75
 for numEm in xrange(1):
 
 	P = np.load('w_zL'+str(numEm)+'.npy');
 
 	Strokes = P.shape[0]
-	N = 26;
+	N = 260;
 	M = 1600;
 
 	for k in xrange(Strokes):
@@ -58,12 +58,16 @@ for numEm in xrange(1):
 		ma = np.amax(P[k])
 		for x in xrange(40):
 			for y in xrange(40):
-				imgStrokes[x][y] =255 - P[k][x*40+y]*255/ma
+				P[k][x*40+y] =255 - P[k][x*40+y]*255/ma
+				imgStrokes[x][y] = P[k][x*40+y]
 		imgStrokes  =  np.uint8(imgStrokes)
 		img  =  Image.fromarray(imgStrokes)
 		#img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 		#img.show();
+
 		img.save("NRStroke/StrokeImage" + str(numEm)+str(k)+ ".tif")
+
+np.save("termDocStroke",P)
 
 
 

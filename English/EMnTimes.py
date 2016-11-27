@@ -10,13 +10,13 @@ import datetime
 import pyopencl as cl
 import pyopencl.array as cl_array
 
-StrokesArray = [25]
+StrokesArray = [12]
 times = len(StrokesArray);
 	#iterations = 15
-Narray = [300]
+Narray = [260]
 M = 1600
 Eps = 0.0000000001
-errorBound = 0.6
+errorBound = 0.75
 
 for numEm in xrange(times):
 
@@ -26,7 +26,7 @@ for numEm in xrange(times):
 	
 
 	if numEm == 0:
-		termDoc = np.load("termDoc30x10.npy")
+		termDoc = np.load("termDocTest26x10.npy")
 		termDoc = termDoc
 		termDoc = 255 - termDoc
 		termDoc = termDoc/255
