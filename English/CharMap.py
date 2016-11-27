@@ -23,7 +23,7 @@ Strokes,M  = P.shape
 rM = math.sqrt(M)
 
 P = 255 - P
-#P= P/255
+P= P/255
 '''for k in xrange(Strokes):
 		sm=0
 		ma = np.amax(P[k])
@@ -39,10 +39,10 @@ for k in xrange(Strokes):
 	P[k]=P[k]/ma'''
 
 
-imgPixels = np.load("termDoc26x10.npy")
+imgPixels = np.load("termDocTest26x10.npy")
 print imgPixels.shape
 imgPixels = 255-imgPixels
-#imgPixels=imgPixels/255;
+imgPixels=imgPixels/255;
 charMap = np.zeros((N,Strokes),dtype = np.float64)
 
 for i in xrange(N):
@@ -54,9 +54,11 @@ for i in xrange(N):
 			for l in xrange(rM):
 				imgPixels[k*40+l] = imgArray[k][l];
 		imgPixels = 1 - (imgPixels/255)'''
+		sm = np.sum(imgPixels[i*Samples+j])
 		for k in xrange(Strokes):
 			AbsoluteSum = np.sum((imgPixels[i*Samples+j]-P[k])**2)
-			sm = np.sum(P[k])
+			print AbsoluteSum,sm
+			
 			charMap[i][k]+=AbsoluteSum/sm
 	charMap[i]=charMap[i]/Samples
 	plt.scatter(xrange(Strokes),charMap[i])
