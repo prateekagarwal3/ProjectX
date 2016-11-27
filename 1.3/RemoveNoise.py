@@ -15,23 +15,11 @@ for numEm in xrange(4):
 	for k in xrange(Strokes):
 		ma=np.sum(P[k])
 		print ma
-
-
-
-
+		
 	ma = np.max(P);
-
 
 	#P = ma - P
 	Pn = float(1)/M;
-
-
-
-
-
-
-
-
 	cnt = 0 
 	for k in xrange(Strokes):
 		sm=0
@@ -64,7 +52,3 @@ for numEm in xrange(4):
 		#img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 		#img.show();
 		img.save("NRStroke/StrokeImage" + str(numEm)+str(k)+ ".tif")
-
-
-
-

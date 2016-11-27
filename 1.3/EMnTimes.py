@@ -23,7 +23,7 @@ for numEm in xrange(3):
 	
 
 	if numEm == 0:
-		termDoc = np.load("termDoc300.npy")
+		termDoc = np.load("termDoc30x10.npy")
 		termDoc = termDoc
 		termDoc = 255 - termDoc
 		termDoc = termDoc/255
