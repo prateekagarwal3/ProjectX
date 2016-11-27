@@ -9,13 +9,16 @@ import sys
 import datetime
 import pyopencl as cl
 import pyopencl.array as cl_array
-StrokesArray = [20,15,10]
+
+StrokesArray = [25]
+times = len(StrokesArray);
 	#iterations = 15
-Narray = [300,20,10]
+Narray = [300]
 M = 1600
 Eps = 0.0000000001
+errorBound = 0.6
 
-for numEm in xrange(3):
+for numEm in xrange(times):
 
 	N = Narray[numEm]
 	Strokes = StrokesArray[numEm]	
@@ -36,11 +39,11 @@ for numEm in xrange(3):
 			odr = np.argsort(termDoc[k])
 			for i in xrange(M-1,-1,-1):
 				sm+=termDoc[k][odr[i]];
-				if(sm>=0.85):
+				if(sm>=errorBound):
 					#cnt = cnt + 1
 					termDoc[k][odr[i]]=0;
 
-		for k in xrange(Strokes):
+		for k in xrange(N):
 			ma = np.amax(termDoc[k])
 			for j in xrange(M):
 				termDoc[k][j]= termDoc[k][j]/ma
@@ -209,7 +212,7 @@ for numEm in xrange(3):
 		if(em>2):
 			percchange = (LikelihoodList[-1]-LikelihoodList[-2])/abs(LikelihoodList[-1])
 			print "Percentage Change = "+str(percchange) 
-			if(percchange<1.5e-06):
+			if(percchange<2e-06):
 				break;
 
 		
@@ -317,7 +320,7 @@ for numEm in xrange(3):
 
 		plt.scatter(xrange(len(LikelihoodList)),LikelihoodList)
 		#plt.show()
-		plt.savefig("Plots/Likelihood"+str(numEm)+".png")
+		#plt.savefig("Plots/Likelihood"+str(numEm)+".png")
 
 		print "Likelihood = "+str(Likelihood) + " " ,
 		print "Completed in "+str(minutes)+" Minutes "+str(seconds)+" Seconds"
