@@ -10,10 +10,10 @@ import datetime
 import pyopencl as cl
 import pyopencl.array as cl_array
 
-StrokesArray = [39,9]
+StrokesArray = [10]
 times = len(StrokesArray);
 	#iterations = 15
-Narray = [26,39]
+Narray = [26]
 M = 1600
 Eps = 0.0000000001
 
@@ -38,7 +38,7 @@ for numEm in xrange(times):
 			odr = np.argsort(termDoc[k])
 			for i in xrange(M-1,-1,-1):
 				sm+=termDoc[k][odr[i]];
-				if(sm>=0.85):
+				if(sm>=0.6):
 					#cnt = cnt + 1
 					termDoc[k][odr[i]]=0;
 
