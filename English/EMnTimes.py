@@ -10,7 +10,7 @@ import datetime
 import pyopencl as cl
 import pyopencl.array as cl_array
 
-StrokesArray = [8]
+StrokesArray = [15]
 times = len(StrokesArray);
 	#iterations = 15
 Narray = [260]
@@ -212,7 +212,7 @@ for numEm in xrange(times):
 		if(em>2):
 			percchange = (LikelihoodList[-1]-LikelihoodList[-2])/abs(LikelihoodList[-1])
 			print "Percentage Change = "+str(percchange) 
-			if(percchange<2e-06):
+			if(percchange<1e-06):
 				break;
 
 		

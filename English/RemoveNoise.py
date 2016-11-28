@@ -67,7 +67,7 @@ for numEm in xrange(1):
 
 		img.save("NRStroke/StrokeImage" + str(numEm)+str(k)+ ".tif")
 
-np.save("termDocStroke8nr11",P)
+np.save("termDocStroke15nr11",P)
 
 
 

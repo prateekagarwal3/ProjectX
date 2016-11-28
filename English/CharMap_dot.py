@@ -15,7 +15,7 @@ N = 26
 Samples = 10
 
 
-P= np.load("termDocStroke88nr11.npy");
+P= np.load("termDocStroke15nr11.npy");
 
 print P.shape
 Strokes,M  = P.shape
@@ -66,9 +66,9 @@ for i in xrange(N):
 			
 			charMap[i][k]+=AbsoluteSum/sm
 	charMap[i]=charMap[i]/Samples
-	plt.scatter(xrange(Strokes),charMap[i])
-	plt.savefig(str(i)+" character")
-	plt.clf()
+	#plt.scatter(xrange(Strokes),charMap[i])
+	#plt.savefig(str(i)+" character")
+	#plt.clf()
 
 
 
