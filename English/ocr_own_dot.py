@@ -16,7 +16,7 @@ import pyopencl.array as cl_array
 M = 1600
 rM = np.int32( math.sqrt(M));
 charMap = np.load("charMap.npy")
-P= np.load("termDocStroke10nr11.npy");
+P= np.load("termDocStroke8nr11.npy");
 P = 255-P
 P=P/255
 charNum = charMap.shape[0]

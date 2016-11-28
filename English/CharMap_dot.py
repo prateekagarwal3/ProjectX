@@ -11,12 +11,11 @@ import pyopencl as cl
 import pyopencl.array as cl_array
 
 
-ErrorBound = 0.6
 N = 26
 Samples = 10
 
 
-P= np.load("termDocStroke10nr11.npy");
+P= np.load("termDocStroke88nr11.npy");
 
 print P.shape
 Strokes,M  = P.shape
