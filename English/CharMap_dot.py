@@ -11,6 +11,7 @@ import pyopencl as cl
 import pyopencl.array as cl_array
 
 
+ErrorBound = 0.6
 N = 26
 Samples = 10
 
@@ -22,7 +23,7 @@ Strokes,M  = P.shape
 rM = math.sqrt(M)
 
 P = 255 - P
-P= P/255
+P = P/255
 '''for k in xrange(Strokes):
 		sm=0
 		ma = np.amax(P[k])
@@ -37,6 +38,10 @@ for k in xrange(Strokes):
 	ma = np.amax(P[k])
 	P[k]=P[k]/ma'''
 
+
+
+def calcSim(A,B):
+	return A*B
 
 imgPixels = np.load("termDocTraining26x10.npy")
 print imgPixels.shape
@@ -55,14 +60,16 @@ for i in xrange(N):
 		imgPixels = 1 - (imgPixels/255)'''
 		sm = np.sum(imgPixels[i*Samples+j])
 		for k in xrange(Strokes):
-			AbsoluteSum = np.sum((imgPixels[i*Samples+j]-P[k])**2)
+			AbsoluteSum=0
+			for l in xrange(M):
+				AbsoluteSum  += calcSim(imgPixels[i*Samples+j][l],P[k][l])
 			print AbsoluteSum,sm
 			
 			charMap[i][k]+=AbsoluteSum/sm
 	charMap[i]=charMap[i]/Samples
-	#plt.scatter(xrange(Strokes),charMap[i])
-	#plt.savefig(str(i)+" character")
-	#plt.clf()
+	plt.scatter(xrange(Strokes),charMap[i])
+	plt.savefig(str(i)+" character")
+	plt.clf()
 
 
 

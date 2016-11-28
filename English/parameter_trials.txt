@@ -1,0 +1,3 @@
+Module		Strokes		Noise Removal		Accuracy		Remarks
+------		-------		-------------		--------		-------
+dot		10		none			70.38%			I has 0% acc.
