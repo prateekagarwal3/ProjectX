@@ -2,7 +2,8 @@ Module		Strokes		Noise Removal		Accuracy		Remarks
 ------		-------		-------------		--------		-------
 dot		10		0.6			73.85%			I has 0% acc. file:termDocStroke10old
 
-dot		10		none			70.38%			I has 0% acc.
+dot     10      0.6         73.0%           
+dot		10		none		70.38%			I has 0% acc.
 dot		10		0.9			70.38%			same set, I has 0.0%
 dot		10		0.8			69.62%			same set, I has 0.0%
 dot		10		0.7			69.23%			same set, I has 0.0%
