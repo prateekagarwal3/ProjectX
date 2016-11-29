@@ -19,3 +19,9 @@ dot		8		none			63.85%			I has 0% acc
 dot		8		0.9			63.46%			I has 0% acc
 dot		8		0.8			63.08%			I has 0% acc
 dot		8		0.6			62.69%			I has 0% acc
+
+dot		15		none			74.61%			I has 0% acc - :(
+dot		15		0.6			73.85%			I has 0% acc - :(
+
+dot		18		none			76.54%			I has 0% acc - :(
+dot		18		0.6			75.38%			I has 0% acc - :(

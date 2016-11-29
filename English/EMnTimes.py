@@ -10,7 +10,7 @@ import datetime
 import pyopencl as cl
 import pyopencl.array as cl_array
 
-StrokesArray = [15]
+StrokesArray = [18]
 times = len(StrokesArray);
 	#iterations = 15
 Narray = [260]

@@ -3,7 +3,7 @@ import math
 import numpy as np
 from PIL import Image
 
-error = 1.1
+error = 0.6
 for numEm in xrange(1):
 
 	P = np.load('w_zL'+str(numEm)+'.npy');
@@ -67,7 +67,7 @@ for numEm in xrange(1):
 
 		img.save("NRStroke/StrokeImage" + str(numEm)+str(k)+ ".tif")
 
-np.save("termDocStroke15nr11",P)
+np.save("termDocStroke18nr06",P)
 
 
 
