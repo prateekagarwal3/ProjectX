@@ -211,7 +211,7 @@ for numEm in xrange(times):
 		if(em>2):
 			percchange = (LikelihoodList[-1]-LikelihoodList[-2])/abs(LikelihoodList[-1])
 			print "Percentage Change = "+str(percchange) 
-			if(percchange<1e-06):
+			if(percchange<1.5e-06):
 				break;
 
 		
