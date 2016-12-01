@@ -15,7 +15,7 @@ N = 30
 Samples = 10
 
 
-P= np.load("termDocStroke20nr11.npy");
+P= np.load("termDocStroke25nr0.8.npy");
 
 print P.shape
 Strokes,M  = P.shape

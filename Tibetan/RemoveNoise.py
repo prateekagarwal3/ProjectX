@@ -3,7 +3,7 @@ import math
 import numpy as np
 from PIL import Image
 
-errorBound = 1.1
+errorBound = 0.6
 for numEm in xrange(1):
 
 	P = np.load('w_zL'+str(numEm)+'.npy');
